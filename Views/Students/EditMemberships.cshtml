@@ -1,0 +1,82 @@
+﻿@model Lab4.Models.ViewModels.CommunityViewModel
+
+@{
+    Layout = "../Shared/_Layout";
+    ViewData["Title"] = "EditMemberships";
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+
+}
+
+<h1>Edit</h1>
+
+<h4>Student</h4>
+
+<div>
+    <dl class="row" style="padding-right:15px;">
+        <dt class="col-sm-2">
+            Full Name
+        </dt>
+        <dd class="col-sm-10">
+            @*@Html.DisplayFor(modelItem => item.LastName)*@
+
+            @Html.DisplayFor(model => model.EditStudent.LastName),
+            @Html.DisplayFor(model => model.EditStudent.FirstName)
+        </dd>
+    </dl>
+</div>
+
+@{List<Lab4.Models.Community> registered = new List<Lab4.Models.Community>();}
+@{List<Lab4.Models.Community> unregistered = new List<Lab4.Models.Community>();}
+
+@foreach (var item in Model.CommunityMembership)
+        {
+@foreach (var i in Model.Community)
+            {
+                if (item.CommunityID.Equals(i.ID))
+                {
+                    registered.Add(i);
+
+                }
+                else
+                {
+                    unregistered.Add(i);
+                }
+            }
+        }
+@*@{registered.Sort();}
+    @{unregistered.Sort();}*@
+@{List<Lab4.Models.Community> SortedRegistered = registered.OrderBy(o=>o.Title).ToList();}
+@{List<Lab4.Models.Community> SortedUnregistered = unregistered.OrderBy(o=>o.Title).ToList();}
+
+<div>
+
+    @{int sID = Model.EditStudent.ID;}
+    <table class="table" style=" width: 51%;  margin-left: 24%;">
+        <tr class="table-dark">
+            @foreach (var item in Model.Community)
+                {
+        <tr>
+            <td>
+
+                @if(registered.Contains(item))
+                {
+                @item.Title  <a style="text-decoration:none; color: blue;" asp-action="RemoveMembership" asp-route-communityID="@item.ID" asp-route-studentId="@sID">Unregister</a>
+                }
+
+                else{
+                @item.Title  <a style="text-decoration:none; color: blue;" asp-action="AddMembership" asp-route-communityID="@item.ID" asp-route-studentId="@sID">Register</a>
+                }
+
+                @*<a style="text-decoration:none; color: blue;" asp-action="RemoveMembership" asp-route-communityID="@item.ID" asp-route-studentId="@sID">Unregister</a>*@
+                @*<a style="text-decoration:none; color: blue;" asp-action="RemoveMembership" asp-route-communityID="@item.ID" asp-route-studentId="@sID">Unregister</a>*@
+            </td>
+        </tr>
+
+                }
+        </table>
+    </div>
+
+    <div>
+        <a style="text-decoration:none; color: blue;" asp-action="Index">Back to List</a>
+    </div>
+

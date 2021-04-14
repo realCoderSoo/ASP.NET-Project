@@ -1,0 +1,33 @@
+﻿@model Lab4.Models.Community
+
+@{
+    Layout = "../Shared/_Layout";
+    ViewData["Title"] = "Details";
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Community</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Budget)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Budget)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a style="text-decoration:none; color: blue;" asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a style="text-decoration:none; color: blue;" asp-action="Index">Back to List</a>
+</div>

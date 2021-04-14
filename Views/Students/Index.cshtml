@@ -1,0 +1,98 @@
+﻿@*@model IEnumerable<Lab4.Models.Student>*@
+@model Lab4.Models.ViewModels.CommunityViewModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Index";
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+
+}
+
+<h1 id="indexTitle">Index</h1>
+<button type="button" onclick="location.href='@Url.Action("Create", "Students")'" class="btn btn-info" style=" margin-left: 12%;
+        margin-bottom: 8px;text-decoration: none;font-weight: 600; font-size: large;">
+    Create New
+</button>
+@*<p>
+        <a style="text-decoration:none; color: blue;" asp-action="Create">Create New</a>
+    </p>*@
+<table class="table" style=" width: 81%; margin-left: 12%;">
+    <thead>
+        <tr class="table-dark">
+            <th>
+                Last Name
+            </th>
+            <th>
+               First Name
+            </th>
+            <th>
+                Enrollment date
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Student)
+        {
+        <tr class="table-warning">
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollmentDate)
+            </td>
+
+            @*<td>
+            @Html.DisplayFor(modelItem => item.EnrollmentDate)
+        </td>*@
+
+            <td>
+                <a style="text-decoration:none; color: blue;" asp-action="Index" asp-route-id="@item.ID">Select</a> |
+                <a style="text-decoration:none; color: blue;" asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a style="text-decoration:none; color: blue;" asp-action="EditMemberships" asp-route-id="@item.ID">Edit Memberships</a> |
+                <a style="text-decoration:none; color: blue;" asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a style="text-decoration:none; color: blue;" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+@if (Model.CommunityMembership != null)
+{
+    <h3 style="margin-left: 28%;
+        font-weight: 600;
+        color: #CD5C5C;
+        margin-top: 32px;
+">
+        Members of the following communities:
+    </h3>
+    <table class="table" style=" width: 51%;  margin-left: 24%;">
+        <tr class="table-dark">
+            @if (Model.CommunityMembership.Count() > 0)
+            {
+                <th> Name </th>
+            }
+            else
+            {
+                <th> No membership record exist </th>
+            }
+        </tr>
+
+        @foreach (var item in Model.CommunityMembership)
+        {
+            @foreach (var i in Model.Community)
+            {
+                if (item.CommunityID == i.ID)
+                {
+                    <tr class="table-warning">
+                        <td>
+                            @i.Title
+                        </td>
+                    </tr>
+                }
+            }
+        }
+    </table>
+}

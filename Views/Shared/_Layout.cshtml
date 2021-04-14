@@ -1,0 +1,92 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Assignment 1</title>
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />*@
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/sketchy/bootstrap.min.css" integrity="sha384-RxqHG2ilm4r6aFRpGmBbGTjsqwfqHOKy1ArsMhHusnRO47jcGqpIQqlQK/kmGy9R" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    @*    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/minty/bootstrap.min.css" integrity="sha384-H4X+4tKc7b8s4GoMrylmy2ssQYpDHoqzPa9aKXbDwPoPUA3Ra8PA5dGzijN+ePnH" crossorigin="anonymous">
+    *@
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+</head>
+<body style="background-image: url(https://pbs.twimg.com/media/DMDIKcyWsAEsKDj.jpg); height: 100%;
+        background-size: cover;">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="/Home" style=" margin-right: 35px;">SchoolCommunity</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor03">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home" style="margin-right: 22px;">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Students" style="margin-right: 22px;">Students</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Communities">Communities</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <br /><br />
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    @RenderSection("Scripts", required: false)
+
+
+
+
+
+    @*<footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2020 - Lab4 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>*@
+    @*  <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>*@
+    @*@RenderSection("Scripts", required: false)*@
+    <!--<header>-->
+    @*@Html.ActionLink("Home", "Index", "Home") &nbsp
+        @Html.ActionLink("Show the song!", "Razor", "Home") &nbsp
+        @Html.ActionLink("Persons", "CreatePerson", "Home") &nbsp*@
+
+
+    <!--<b><a class="navbar-brand" style="text-decoration:none; color: inherit;" asp-controller="Home" asp-action="Index">SchoolCommunity</a></b> &nbsp; &nbsp;
+        <a class="navbar-brand" style="text-decoration:none; color: inherit;" asp-controller="Home" asp-action="Index">Home</a>  &nbsp;
+        <a class="navbar-brand" style="text-decoration:none; color: inherit;" asp-controller="Students" asp-action="Index">Students</a>  &nbsp;
+        <a class="navbar-brand" style="text-decoration:none; color: inherit;" asp-controller="Communities" asp-action="Index">Communities</a>  &nbsp;
+
+
+    </header>
+    <div class="content">
+        @RenderBody()
+    </div>
+    <footer>
+        <div>-->
+    @*<p>
+            Footer!
+        </p>*@
+    <!--</div>
+    </footer>-->
+</body>
+</html>
